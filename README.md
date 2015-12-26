@@ -6,7 +6,7 @@ Run the following command to see rendered components
 ```
 npm run client
 ```
-Then you can see the component in [http://127.0.0.1:8080][http://127.0.0.1:8080]
+Then you can see the component in [http://127.0.0.1:8080](http://127.0.0.1:8080)!
 
 ### Render in Server way
 ```
