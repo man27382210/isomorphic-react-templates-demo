@@ -1,11 +1,13 @@
 "use strict";
 var path = require("path"),
-    webpack = require("webpack");
+    webpack = require("webpack"),
+    hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
+
 
 module.exports = {
     cache: true,
     entry: {
-        index: "./src/index.jsx"
+        index: ["./src/index.jsx", hotMiddlewareScript]
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -15,20 +17,21 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.ajs$/,
-            loader: "node-async-require-loader?preParser=rt"
+            loaders: ["node-async-require-loader?preParser=rt&async=false"]
         }, {
             test: /\.jsx$/,
-            loader: "jsx-loader?insertPragma=React.DOM&harmony"
+            loaders: ["jsx-loader?insertPragma=React.DOM&harmony"]
         }]
     },
     plugins: [
-
-
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin()
     ],
     externals: {
 
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx', '.ajs', '.html']
     }
 };

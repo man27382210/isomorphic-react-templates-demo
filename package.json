@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "./node_modules/.bin/webpack-dev-server -d --config webpack.config.js --content-base src/ --colors --hot --progress --inline --watch",
-    "server": "node server.js"
+    "client": "./node_modules/.bin/webpack-dev-server -d --config webpack.config.js --content-base src/ --colors --hot --watch",
+    "dev": "node app.js"
   },
   "keywords": [
     "isomorphic",
@@ -17,15 +17,25 @@
   "author": "jaydenlin",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "3.1.1",
+    "eval": "0.1.1",
+    "express-partial-react-views": "0.0.15",
     "jsx-loader": "0.13.2",
     "lodash": "3.10.1",
     "mocha": "2.3.4",
-    "node-async-require": "0.0.3",
-    "node-async-require-loader": "1.1.8",
+    "node-async-require": "1.0.5",
+    "node-async-require-loader": "1.1.14",
     "node-jsx": "0.13.3",
     "react": "0.13.3",
+    "react-hot-loader": "1.3.0",
     "react-templates": "0.3.2",
+    "react-templates-loader": "0.3.1",
     "webpack": "1.12.9",
-    "webpack-dev-server": "1.7.0"
+    "webpack-dev-server": "1.14.0"
+  },
+  "devDependencies": {
+    "express": "4.13.3",
+    "webpack-dev-middleware": "1.4.0",
+    "webpack-hot-middleware": "2.6.0"
   }
 }
