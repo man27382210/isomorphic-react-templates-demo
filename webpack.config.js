@@ -26,7 +26,7 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new watchFolderPlugin({watchFolder: "/src/components/"})
+        new watchFolderPlugin({watchFolder: "/src/components/", watchExtension: "rt"})
     ],
     externals: {
 
