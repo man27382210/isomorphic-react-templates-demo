@@ -1,6 +1,8 @@
 var watch = require('watch');
 var path  = require('path');
 var fs    = require('fs');
+
+
 function watchFolderPlugin(options) {
   this.options = options;
 }
@@ -11,16 +13,14 @@ watchFolderPlugin.prototype.apply = function(compiler) {
     var watchFolder = path.join(__dirname, that.options.watchFolder);
     fs.exists(watchFolder, function(exists){
       if(exists){
-        watch.watchTree(watchFolder, function (f, curr, prev) {
-          if (typeof f == "object" && prev === null && curr === null) {
-          } else if (prev === null) {
-          } else if (curr.nlink === 0) {
-          } else {
-            compiler.run(function(err) {
-              if(err) throw err;
+        watch.createMonitor(watchFolder, function(monitor){
+           monitor.on("changed", function (f, curr, prev) {
+              compiler.run(function(err) {
+                if(err) throw err;
+                monitor.stop();
+              });
             });
-          }
-        });    
+        });   
       }else{
         console.log("[watchFolderPlugin] folder not exists");
       }
