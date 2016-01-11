@@ -1,10 +1,16 @@
 var React = require('React/addons');
 // var helloTemplate = require("./local-hello-world.rt");
-var helloTemplate = require("./remote-hello-world.ajs");
+
 var Hello = React.createClass({
   
   render: function() {  
-    return helloTemplate.apply(this); 
+  	var helloTemplate = require("./remote-hello-world.ajs");
+  	helloTemplate = helloTemplate["rui-category-banner2"];
+  	if(typeof(helloTemplate)!=='undefined'){
+  		return helloTemplate.apply(this);	
+  	}else{
+  		return (<div>loading error</div>);
+  	}
   }
   
 });

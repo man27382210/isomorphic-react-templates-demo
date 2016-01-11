@@ -19,7 +19,7 @@ app.engine('html', engine.createEngine({
 	useBabel: false
 }));
 
-
+process.env.NODE_ENV = "dev";
 // Step 1: Create & configure a webpack compiler
 var webpack = require('webpack');
 var webpackConfig = require(process.env.WEBPACK_CONFIG ? process.env.WEBPACK_CONFIG : './webpack.config');

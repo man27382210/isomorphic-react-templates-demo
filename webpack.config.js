@@ -16,7 +16,8 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.ajs$/,
-            loaders: ["node-async-require-loader?preParser=rt&async=false"]
+            loaders: ["node-async-require-loader?preParser=multipleRts&async=true&queryString='current_page=/page/top/test4/'"]
+            // loaders: ["node-async-require-loader?preParser=rt&async=false"]
         }, {
             test: /\.jsx$/,
             loaders: ["jsx-loader?insertPragma=React.DOM&harmony"]

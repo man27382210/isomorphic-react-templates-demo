@@ -1,4 +1,4 @@
 module.exports={
-	remoteUrl:"https://jaydenlin.github.io/fake-remote-contents-for-test/contents/react-template/",
+	remoteUrl:"http://localhost:3001/component_rts_bypage?country=tw&componentPath=part_category/src/components/category_banner.jsx&rt_filename=title&",
 	localPath:"./src/components/local-hello-world.rt"  
 }
